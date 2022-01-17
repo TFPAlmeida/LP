@@ -4,7 +4,7 @@
    <div class="row">
        <div class="col-sm-6">
         
-       <img class="detail-img" src="{{asset('storage/images/').$announcements->path_imagem}}" alt="{{$announcements->path_imagem}}" width="200" height="auto">
+       <img class="detail-img" src="{{asset('storage/images/'.$announcements->path_imagem)}}" width="200" height="auto">
        </div>
        <div class="col-sm-6">
            
@@ -25,10 +25,10 @@
            <button class="btn btn-success">Contactos</button>
        </form>
        <br><br>
-       @elseif(Session::has('company'))
+       @elseif(Session::has('company') && Session::has('admin'))
        
                 <div class="col-sm-3">
-                <a href="/removeAnnouncement/{{$announcements->id}}" class="btn btn-warning" >Remove to Cart</a>
+                <a href="/removeAnnouncement/{{$announcements->id}}" class="btn btn-warning" >Remove</a>
                 </div>
                
        @endif

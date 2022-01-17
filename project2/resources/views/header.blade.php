@@ -81,7 +81,7 @@ if(Session::has('user'))
             <ul class="dropdown-menu">
               <li><a href="/register_user">Register Cliente</a></li>
               <li><a href="/register_company">Register Company</a></li>
-              <li><a href="/register_admin">Register Admin</a></li>
+              <li><a href="/confirmAdmin">Register Admin</a></li>
             </ul>
           </li>
           @endif

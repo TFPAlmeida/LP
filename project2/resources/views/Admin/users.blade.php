@@ -2,12 +2,16 @@
 @section("content")
 <?php 
 use App\Models\User;
+$total = 0;
 $data = User::all();
+foreach($data as $item){
+  $total++;
+}
 ?>
 <div class="custom-product">
      <div class="col-sm-10">
         <div class="trending-wrapper">
-            <h4>Users</h4>
+            <h2>Users ({{$total}})</h2>
             @foreach($data as $item)
             <div class=" row searched-item cart-list-devider">
              <div class="col-sm-3">

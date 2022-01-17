@@ -31,10 +31,17 @@ class CompanyController extends Controller
         $company = new Company;
         $company->name=$req->name;
         $company->email=$req->email;
-        $company->password=Hash::make($req->password);
-        $company->save();
-        $req->session()->put('company',$company);
-        return redirect('/');
+        $company->password=($req->password);
+        $password=($req->confirm_password);
+        if($company->password == $password){
+            $company->password=Hash::make($password);
+            $company->save();
+            $req->session()->put('company',$company);
+            return redirect('/');
+        }else{
+            return "Passwords not Match";
+        }
+        
     }
 
     public function store(Request $req)
@@ -48,22 +55,16 @@ class CompanyController extends Controller
         $announcement->role=$req->input('role');
         $announcement->description=$req->input('description');
         $announcement->name_imagem = $name;
-        $announcement->path_imagem = $req->file('image');
+        //$announcement->path_imagem = $req->file('image');
+        $announcement->path_imagem = $req->file('image')->hashName();
         $announcement->company_id=$req->session()->get('company')['id'];
         $announcement->company_email=$req->session()->get('company')['email'];
         $announcement->save();
-        //countAnnoncments();
-        
             return redirect('/');
         }else{
             return redirect('/login_company');
         }
     }
-
-    /*public function countAnnoncments(){
-        $companyId=Session::get('company')['id'];
-        return Announcement::where('company_id',$companyId)->count();
-    }*/
 
     function removeAnnouncement($id,Request $req)
     {

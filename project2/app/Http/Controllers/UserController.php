@@ -22,10 +22,17 @@ class UserController extends Controller
         $user = new User;
         $user->name=$req->name;
         $user->email=$req->email;
-        $user->password=Hash::make($req->password);
-        $user->save();
-        $req->session()->put('user',$user);
-        return redirect('/');
+        $user->password=($req->password);
+        $password=($req->confirm_password);  
+        if($user->password == $password){
+            $user->password=Hash::make($password);
+            $user->save();
+            $req->session()->put('user',$user);
+            return redirect('/');
+        }else{
+            return "Passwords not Match";
+        }
+       
     }
 
     function contactos($id,Request $req)

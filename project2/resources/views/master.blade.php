@@ -54,6 +54,13 @@
         background-color: rgba(0, 0, 0, 0.6);
         color: white;
         margin: 30px;
+        
+    }
+    .trending-wrapper2{
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        margin: 30px;
+        text-align: center;
     }
     .detail-img{
         height: 200px;
@@ -90,12 +97,70 @@
 
     .custom-product{
         margin-top: 5%;
-       
-        
-       
-        margin: auto;
-        
+        margin: auto;  
     }
+
+    .from-group{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+    .from-group input{
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid rgba(128,128, 128,0);
+  margin-top: 5px;
+ 
+}
+
+.from-group textarea{
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid rgba(128,128, 128,0);
+  margin-top: 5px;
+  
+}
+
+textarea{
+  resize: vertical;
+}
+
+.button{
+    width: 100%;
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  transition: .3s ease background-color;
+}
+
+.button:hover{
+    background-color: rgba(14, 14, 14, 0.4);
+}
+
+.about2 {
+  padding: 10px;
+  color: white;
+}
+
+.card {
+    width: 450px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  margin: auto;
+  margin-top: 5%; 
+  font-family: 'Century Gothic',sans-serif;
+  text-align: center;
+}
 
 </style>
 </html>

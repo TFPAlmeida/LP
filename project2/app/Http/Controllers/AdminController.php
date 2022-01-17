@@ -24,10 +24,16 @@ class AdminController extends Controller
         $admin = new Admin;
         $admin->name=$req->name;
         $admin->email=$req->email;
-        $admin->password=Hash::make($req->password);
-        $admin->save();
-        $req->session()->put('admin',$admin);
-        return redirect('/');
+        $admin->password=($req->password);
+        $password=($req->confirm_password);
+        if($admin->password == $password){
+            $admin->password=Hash::make($password);
+            $admin->save();
+            $req->session()->put('admin',$admin);
+            return redirect('/');
+        }else{
+            return "Passwords not Match";
+        }
     }
 
     function admin_users($id)
@@ -46,5 +52,15 @@ class AdminController extends Controller
     {
         Announcement::destroy($id);
         return redirect('/announcements');
+    }
+
+    public function confirm_admin(Request $req){
+        $password="12345";
+        if($req->password_admin == $password){
+            return redirect('/register_admin');
+        }else{
+            return redirect('/');
+        }
+
     }
 }
